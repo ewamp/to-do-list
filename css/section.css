@@ -35,6 +35,11 @@
     width: 25px;
     height: 25px;
     padding: 0;
+    transition: 1s;
+}
+
+.section__button:hover {
+    background-color: hsl(120, 100%, 33%);
 }
 
 .section__button--done {
@@ -44,4 +49,8 @@
 .section__button--red {
     border: 1px solid crimson;
     background-color: crimson;
+}
+
+.section__button--red:hover {
+    background-color: hsl(348, 83%, 65%);
 }
