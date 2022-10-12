@@ -4,6 +4,12 @@
     margin-top: 50px;
 }
 
+@media (max-width: 767px) {
+    .container {
+        margin: 0 5px;
+    }
+}
+
 .container__header {
     border: 1px solid  hsl(0, 0%, 90%);
     padding: 20px 0px;
