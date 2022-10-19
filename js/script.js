@@ -34,7 +34,7 @@
         tasks = tasks.map((task) => ({
             ...task,
             done: true,
-    }));
+        }));
         render();
     };
 
@@ -54,17 +54,17 @@
     };
 
     const bindToggleDoneEvents = () => {
-    const toggleDoneButtons = document.querySelectorAll(".js-done");
+        const toggleDoneButtons = document.querySelectorAll(".js-done");
 
-    toggleDoneButtons.forEach((toggleDoneButton, index) => {
-        toggleDoneButton.addEventListener("click", () => {
-            toggleTaskDone(index);
+        toggleDoneButtons.forEach((toggleDoneButton, index) => {
+            toggleDoneButton.addEventListener("click", () => {
+                toggleTaskDone(index);
+            });
         });
-    });
-};
+    };
 
-const renderTasks = () => {
-    const taskToHTML = task => `
+    const renderTasks = () => {
+        const taskToHTML = task => `
                 <li class="
                 section__listItem${task.done && hideDoneTasks ? " section__listItem--hidden" : ""} js-tasks">
                 
@@ -79,19 +79,19 @@ const renderTasks = () => {
                 </li>
             `;
 
-    const tasksElement = document.querySelector(".js-tasks");
-    tasksElement.innerHTML = tasks.map(taskToHTML).join("");
-};
+        const tasksElement = document.querySelector(".js-tasks");
+        tasksElement.innerHTML = tasks.map(taskToHTML).join("");
+    };
 
-const renderButtons = () => {
-    const buttonsElement = document.querySelector(".js-buttons");
+    const renderButtons = () => {
+        const buttonsElement = document.querySelector(".js-buttons");
 
-    if (!tasks.length) {
-        buttonsElement.innerHTML = "";
-        return;
-    }
+        if (!tasks.length) {
+            buttonsElement.innerHTML = "";
+            return;
+        }
 
-    buttonsElement.innerHTML = `
+        buttonsElement.innerHTML = `
             <button class="buttons__button js-toggleHideDoneTasks">
                 ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone 
             </button>
@@ -100,50 +100,50 @@ const renderButtons = () => {
                 Ukończ wszystkie
             </button>
             `;
-};
+    };
 
-const bindButtonsEvents = () => {
-    const markAllDoneButton = document.querySelector(".js-markAllDone");
+    const bindButtonsEvents = () => {
+        const markAllDoneButton = document.querySelector(".js-markAllDone");
 
-    if (markAllDoneButton) {
-        markAllDoneButton.addEventListener("click", markAllTasksDone);
-    }
+        if (markAllDoneButton) {
+            markAllDoneButton.addEventListener("click", markAllTasksDone);
+        }
 
-    const toggleHideDoneTaskButton = document.querySelector(".js-toggleHideDoneTasks");
+        const toggleHideDoneTaskButton = document.querySelector(".js-toggleHideDoneTasks");
 
-    if (toggleHideDoneTaskButton) {
-        toggleHideDoneTaskButton.addEventListener("click", toggleHideDoneTasks);
-    }
-};
+        if (toggleHideDoneTaskButton) {
+            toggleHideDoneTaskButton.addEventListener("click", toggleHideDoneTasks);
+        }
+    };
 
-const render = () => {
-    renderTasks();
-    bindEvents();
-    bindToggleDoneEvents();
-    renderButtons();
-    bindButtonsEvents();
-};
+    const render = () => {
+        renderTasks();
+        bindEvents();
+        bindToggleDoneEvents();
+        renderButtons();
+        bindButtonsEvents();
+    };
 
-const onFormSubmit = (event) => {
-    event.preventDefault();
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
-    const newTaskElement = document.querySelector(".js-newTask");
-    const newTaskContent = newTaskElement.value.trim();
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
 
-    if (newTaskContent !== "") {
-        addNewTask(newTaskContent);
-        newTaskElement.value = "";
-    }
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent);
+            newTaskElement.value = "";
+        }
 
-    newTaskElement.focus();
-};
+        newTaskElement.focus();
+    };
 
-const init = () => {
-    render();
+    const init = () => {
+        render();
 
-    const form = document.querySelector(".js-form");
-    form.addEventListener("submit", onFormSubmit);
-};
+        const form = document.querySelector(".js-form");
+        form.addEventListener("submit", onFormSubmit);
+    };
 
-init();
+    init();
 }
