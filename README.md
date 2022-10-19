@@ -11,7 +11,7 @@ This aplication adds tasks to the list.
 By green button a task can be "ticked" and crossed out, and by red button a task can be removed.
 
 ## How it works?
-![How it works animation](https://github.com/ewamp/to-do-list/blob/master/gif/to-do-list.gif?raw=true)
+![How it works animation](https://(https://github.com/ewamp/to-do-list/blob/master/gif/to-do-list-gif.gif?raw=true)
 
 ## Technologies
 
