@@ -66,15 +66,20 @@
     const renderTasks = () => {
         const taskToHTML = task => `
                 <li class="
-                section__listItem${task.done && hideDoneTasks ? " section__listItem--hidden" : ""} js-tasks">
+                section__listItem${task.done && hideDoneTasks ? " section__listItem--hidden" : ""} js-tasks"
+                >
                 
                 <button class="section__button section__button--done js-done">
-                ${task.done ? "✔" : ""}
+                    ${task.done ? "✔" : ""}
                 </button>
+
                 <span class="section__listContent${task.done ? " section__listItem--done" : ""}">
-                ${task.content}
+                    ${task.content}
                 </span>
-                <button class=" section__button section__button--red js-remove">🗑</button>
+
+                <button class=" section__button section__button--red js-remove">
+                🗑
+                </button>
                 
                 </li>
             `;
@@ -95,8 +100,10 @@
             <button class="buttons__button js-toggleHideDoneTasks">
                 ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone 
             </button>
-            <button class="buttons__button js-markAllDone"
-                ${tasks.every(({ done }) => done) ? " disabled" : ""}>
+            <button 
+                class="buttons__button js-markAllDone"
+                ${tasks.every(({ done }) => done) ? " disabled" : ""}
+            >
                 Ukończ wszystkie
             </button>
             `;
